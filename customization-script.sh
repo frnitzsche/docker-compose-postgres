@@ -19,7 +19,7 @@ sed '/root         \/usr\/share\/nginx\/html;/r'<(cat <<EOF
         location / {
             auth_basic           "Restricted Access Area";
             auth_basic_user_file /etc/nginx/.htpasswd;
-            proxy_pass http://127.0.0.1:8082;
+            proxy_pass http://127.0.0.1:8083;
             proxy_set_header Host \$host;
             proxy_set_header X-Real-IP \$remote_addr;
             proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
