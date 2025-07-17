@@ -7,7 +7,8 @@ sudo systemctl start docker.service && \
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-linux-$(uname -m) -o /usr/bin/docker-compose && \
 sudo chmod 755 /usr/bin/docker-compose && \
 cd /docker-compose-postgres && \
-sudo docker-compose up -d && \
+echo 'Running sudo docker-compose --progress quiet up -d '
+sudo docker-compose --progress quiet up -d && \
 curl "http://api.dynu.com/nic/update?hostname=$host&myip=$(curl -s ifconfig.me)&password=faf0152cfacc4704af98927ae6dd55f4"
 sudo sed -i "s/server_name  _;/server_name ${host};/g" /etc/nginx/nginx.conf && \
 
